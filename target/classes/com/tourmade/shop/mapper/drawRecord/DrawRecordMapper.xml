@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tourmade.shop.mapper.drawRecord.DrawRecordMapper">
+
+	<resultMap type="com.tourmade.shop.entity.DrawRecord" id="drawRecord">
+		<id column="record_id" property="recordId" jdbcType="INTEGER" javaType="int"/>
+		<result column="mobilephone" property="mobilephone" jdbcType="VARCHAR" javaType="String"/>
+		<result column="status" property="status" jdbcType="INTEGER" javaType="int"/>
+		<result column="create_time" property="createTime" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="update_time" property="updateTime" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="isdel" property="isdel" jdbcType="INTEGER" javaType="int"/>
+	</resultMap>
+	
+	<select id="selectDrawRecordByMobilephone" parameterType="String" resultMap="drawRecord">
+		select record_id,mobilephone,status,create_time,update_time,isdel
+		from tm_draw_record
+		where 
+		mobilephone = #{mobilephone}
+		and isdel = 0
+		limit 1
+	</select>
+	
+	<select id="countDrawRecordByCreateTime" resultMap="drawRecord">
+		select count(1)
+		from tm_draw_record
+		where create_time &gt; CURDATE()
+	</select>
+	
+	<insert id="insertDrawRecord" parameterType="DrawRecord" useGeneratedKeys="true" keyColumn="record_id">
+		insert into tm_draw_record(
+			mobilephone,
+			status,
+			create_time,
+			update_time,
+			isdel
+		) values (
+			#{mobilephone, jdbcType=VARCHAR},
+			#{status, jdbcType=INTEGER},
+			now(),
+			now(),
+			0
+		)
+	</insert>
+	
+	<update id="updateDrawRecordByMobilePhone" parameterType="DrawRecord">
+		update tm_draw_record 
+		set  
+		status = #{status},
+		update_time = now()
+		where 
+		mobilephone = #{mobilephone}
+	</update>
+</mapper>
