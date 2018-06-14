@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tourmade.shop.mapper.productDetail.ProductDetailMapper">
+
+	<resultMap type="com.tourmade.shop.entity.ProductDetail" id="productDetail">
+		<id column="product_id" property="productId" jdbcType="INTEGER" javaType="int"/>
+		<result column="product_code" property="productCode" jdbcType="VARCHAR" javaType="String"/>
+		<result column="product_name" property="productName" jdbcType="VARCHAR" javaType="String"/>
+		<result column="product_description" property="productDescription" jdbcType="VARCHAR" javaType="String"/>
+		<result column="product_price" property="productPrice" jdbcType="INTEGER" javaType="int"/>
+		<result column="product_stock" property="productStock" jdbcType="INTEGER" javaType="int"/>
+		<result column="travel_date" property="travelDate" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="create_time" property="createTime" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="update_time" property="updateTime" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="isdel" property="isdel" jdbcType="INTEGER" javaType="int"/>
+	</resultMap>
+	
+	<select id="selectProductDetail" resultMap="productDetail">
+		select product_id,product_code,product_name,product_description,product_price,product_stock,
+			travel_date,create_time,update_time,isdel
+		from tm_product_detail
+		where isdel = 0
+	</select>
+</mapper>

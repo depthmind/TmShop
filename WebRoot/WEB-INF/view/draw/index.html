@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.rotate.min.js"></script>
+    <script src="js/zz.js"></script>
+
+  </head>
+  <body>
+    <div id="" class="wrap index">
+      <div id="rotate_wrap" class="rotate_wrap">
+          <img id="rotate_img" class="rotate_img" src="images/index/u5.png" />
+      </div>
+
+      <ul class="hjmd"><!--获奖名单-->
+        <li>恭喜 187****7896获得免费一日游</li>
+        <li>恭喜 187****7896获得免费一日游</li>
+      </ul>
+
+      <form>
+          <div class="form-group">
+            <input class="form-control" type="tel" value="" placeholder="请输入手机号" />
+          </div>
+
+          <div id="" class="form-group validate-code">
+            <input class="form-control" type="text" value="" placeholder="请输入验证码" />
+            <input class="form-control" type="button" value="验证码" />
+          </div>
+
+          <div id="" class="form-group">
+            <input id="choujiang" type="button" value="抽奖" />
+          </div>
+          <a style="width: 100%;" class="link-baoming" href="order.html">直接报名</a>
+      </form>
+      <div class="toutu" style="margin-top: 30px;">
+        <img style="width: 100%; height: auto;" src="images/gubei.jpg"/>
+      </div>
+      <div class="description">
+        <ol>
+          <li>1. 单个兑换码可免费一人，无兑换码的客人需要支付出行费用180元/人.</li>
+          <li>2. 本活动最终解释权归XXX所有</li>
+          <li>3. 活动方有权收回违规得到的兑换码</li>
+        </ol>
+      </div>
+    </div>
+    <div id="modal1" class="modal">
+      <img style="width: 100%; height: auto;" src="images/gubei.jpg"/>
+      <div style="font-size: 18px; text-align: center; margin: 6px 0;">抱歉</div>您这次没有中奖，您可以点击下方按钮报名付费参与古北水镇一日游！
+      <a href="order.html">立即报名</a>
+      <div class="description">
+        <ol>
+          <li>1. 单个兑换码可免费一人，无兑换码的客人需要支付出行费用180元/人.</li>
+          <li>2. 本活动最终解释权归XXX所有</li>
+          <li>3. 活动方有权收回违规得到的兑换码</li>
+        </ol>
+      </div>
+    </div>
+    <div id="modal2" class="modal">
+      <img style="width: 100%; height: auto;" src="images/gubei.jpg"/>
+      <div style="font-size: 18px; text-align: center; margin: 6px 0;">恭喜!</div>您获得单人免费一日游机会，您可以邀请最多三人付费陪同前往，点击立即兑换填写您的出行信息兑换奖励！
+      <a href="order.html">兑换奖励</a>
+      <div class="description">
+        <ol>
+          <li>1. 单个兑换码可免费一人，无兑换码的客人需要支付出行费用180元/人.</li>
+          <li>2. 本活动最终解释权归XXX所有</li>
+          <li>3. 活动方有权收回违规得到的兑换码</li>
+        </ol>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          
+          $("#choujiang").click(function () {
+            $.ajax({
+              url: "", 
+              success: function() {
+                $("#rotate_img").rotate({
+                    angle:0, 
+                    animateTo:766, 
+                    duration:3000,
+                });
+                setTimeout('$("#modal2").show()', 3000);
+              },
+              error: function() {
+                $("#rotate_img").rotate({
+                    angle:0, 
+                    animateTo:866, 
+                    duration:3000,
+                });
+                setTimeout('$("#modal1").show()', 3000);
+              }
+            });
+          })
+          
+       
+      });
+    </script>
+  </body>
+</html>

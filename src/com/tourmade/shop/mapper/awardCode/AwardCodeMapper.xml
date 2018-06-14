@@ -8,8 +8,8 @@
 		<result column="award_code" property="awardCode" jdbcType="VARCHAR" javaType="String"/>
 		<result column="mobilephone" property="mobilephone" jdbcType="VARCHAR" javaType="String"/>
 		<result column="status" property="status" jdbcType="INTEGER" javaType="int"/>
-		<result column="draw_time" property="createTime" jdbcType="DATE" javaType="java.sql.Date"/>
-		<result column="exchange_time" property="createTime" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="draw_time" property="drawTime" jdbcType="DATE" javaType="java.sql.Date"/>
+		<result column="exchange_time" property="exchangeTime" jdbcType="DATE" javaType="java.sql.Date"/>
 		<result column="create_time" property="createTime" jdbcType="DATE" javaType="java.sql.Date"/>
 		<result column="update_time" property="updateTime" jdbcType="DATE" javaType="java.sql.Date"/>
 		<result column="isdel" property="isdel" jdbcType="INTEGER" javaType="int"/>
